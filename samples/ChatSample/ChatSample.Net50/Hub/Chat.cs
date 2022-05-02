@@ -3,11 +3,13 @@
 
 using System;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Azure.SignalR;
 
 namespace ChatSample.Net50
 {
+    [Authorize(Policy = "FooBar")]
     public class Chat : Hub
     {
         public void BroadcastMessage(string name, string message)
